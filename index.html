@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Sina</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./config.css">
+    <link rel="icon" href="./images/avatar1.PNG">
+</head>
+
+<body class="bg-stone-300 dark:bg-darkbg font-Jost font-medium">
+    <header x-data="{tabNO:0 , activeClass : 'text-primaycolor dark:text-primaycolor_dark'}" class="shadow-none sticky -top-[1px] md:top-0  z-10 md:dark:shadow-lg bg-stone-100 font-Jost font-extrabold text-black mx-auto 
+        dark:bg-header_darkbg dark:text-white dark:shadow-none">
+        <div class="w-4/5 mx-auto flex items-center justify-between max-w-screen-2xl">
+            <svg class="ham hamRotate md:hidden" viewBox="0 0 100 100" width="60"
+                onclick="this.classList.toggle('active'); clicked();">
+                <path class="line top dark:stroke-white"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"></path>
+                <path class="line middle dark:stroke-white" d="m 70,50 h -40"></path>
+                <path class="line bottom dark:stroke-white"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"></path>
+            </svg>
+            <div class="py-6 text-3xl">
+                Sina.
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex">
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 1" :class="tabNO == 1 ? activeClass : ''" href="#About">
+                            About
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 2" :class="tabNO == 2 ? activeClass : ''" href="#Exp">
+                            Experience
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 3" :class="tabNO == 3 ? activeClass : ''" href="#Services">
+                            Services
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 4" :class="tabNO == 4 ? activeClass : ''" href="#Portfolio">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 5" :class="tabNO == 5 ? activeClass : ''" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div onclick="theme()" class="cursor-pointer">
+                <svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="26.666674"
+                    height="24" viewBox="0 0 26.666674 24" fill="none" version="1.1" id="svg4"
+                    sodipodi:docname="0edb01c6933bcd8f0ece7fd255220d19.svg">
+                    <defs id="defs8" />
+                    <sodipodi:namedview id="namedview6" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0"
+                        inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" />
+                    <path class="fill-black dark:fill-white"
+                        d="m 20.879974,7.12 c 0.3498,-0.00147 0.685,-0.14034 0.9334,-0.38667 l 0.9466,-0.94666 c 0.1396,-0.11953 0.253,-0.26662 0.333,-0.43204 0.08,-0.16542 0.125,-0.3456 0.1321,-0.52923 0.0071,-0.18362 -0.0239,-0.36673 -0.0909,-0.53783 -0.067,-0.1711 -0.1687,-0.3265 -0.2986,-0.45644 -0.13,-0.12994 -0.2854,-0.23161 -0.4565,-0.29865 -0.1711,-0.06703 -0.3542,-0.09797 -0.5378,-0.09088 -0.1836,0.00709 -0.3638,0.05207 -0.5292,0.1321 -0.1655,0.08003 -0.3125,0.19339 -0.4321,0.33297 l -0.88,0.94666 c -0.2483,0.24982 -0.3877,0.58776 -0.3877,0.94 0,0.35225 0.1394,0.69019 0.3877,0.94 0.2351,0.23382 0.5488,0.37167 0.88,0.38667 z M 13.333374,4 c 0.3536,0 0.6927,-0.14048 0.9428,-0.39052 0.25,-0.25005 0.3905,-0.58919 0.3905,-0.94281 V 1.33333 c 0,-0.353619 -0.1405,-0.692757 -0.3905,-0.942806 C 14.026074,0.140476 13.686974,0 13.333374,0 c -0.3537,0 -0.6928,0.140476 -0.9428,0.390524 -0.2501,0.250049 -0.3906,0.589187 -0.3906,0.942806 v 1.33334 c 0,0.35362 0.1405,0.69276 0.3906,0.94281 0.25,0.25004 0.5891,0.39052 0.9428,0.39052 z m -10.66671,8 h -1.33333 c -0.35362,0 -0.69276,0.1405 -0.94281,0.3905 C 0.140476,12.6406 0,12.9797 0,13.3333 c 0,0.3537 0.140476,0.6928 0.390524,0.9428 0.25005,0.2501 0.58919,0.3906 0.94281,0.3906 h 1.33333 c 0.35362,0 0.69276,-0.1405 0.94281,-0.3906 0.25005,-0.25 0.39053,-0.5891 0.39053,-0.9428 0,-0.3536 -0.14048,-0.6927 -0.39053,-0.9428 C 3.359424,12.1405 3.020284,12 2.666664,12 Z m 2.18667,-5.26667 c 0.24835,0.24633 0.58355,0.3852 0.93333,0.38667 0.17548,0.00101 0.34943,-0.03262 0.51188,-0.09897 0.16245,-0.06635 0.3102,-0.16412 0.43479,-0.2877 0.24833,-0.24981 0.38772,-0.58775 0.38772,-0.94 0,-0.35224 -0.13939,-0.69018 -0.38772,-0.94 L 5.786664,3.90667 C 5.531594,3.68823 5.203494,3.57409 4.867924,3.58705 4.532364,3.60001 4.214044,3.73912 3.976584,3.97658 3.739124,4.21404 3.600014,4.53236 3.587054,4.86793 3.574094,5.2035 3.688234,5.5316 3.906664,5.78667 Z M 25.333374,12 h -1.3334 c -0.3536,0 -0.6927,0.1405 -0.9428,0.3905 -0.25,0.2501 -0.3905,0.5892 -0.3905,0.9428 0,0.3537 0.1405,0.6928 0.3905,0.9428 0.2501,0.2501 0.5892,0.3906 0.9428,0.3906 h 1.3334 c 0.3536,0 0.6927,-0.1405 0.9428,-0.3906 0.25,-0.25 0.3905,-0.5891 0.3905,-0.9428 0,-0.3536 -0.1405,-0.6927 -0.3905,-0.9428 -0.2501,-0.25 -0.5892,-0.3905 -0.9428,-0.3905 z m -13.3334,9.3333 h -3.99997 c -0.35363,0 -0.69276,0.1405 -0.94281,0.3906 -0.25005,0.25 -0.39053,0.5891 -0.39053,0.9428 0,0.3536 0.14048,0.6927 0.39053,0.9428 0.25005,0.25 0.58918,0.3905 0.94281,0.3905 h 3.99997 c 0.3536,0 0.6928,-0.1405 0.9428,-0.3905 0.2501,-0.2501 0.3906,-0.5892 0.3906,-0.9428 0,-0.3537 -0.1405,-0.6928 -0.3906,-0.9428 -0.25,-0.2501 -0.5892,-0.3906 -0.9428,-0.3906 z M 21.333374,16 h -1.1734 c 0.3368,-0.8486 0.5087,-1.7537 0.5067,-2.6667 0,-1.9449 -0.7726,-3.81015 -2.1479,-5.18542 C 17.143474,6.77262 15.278274,6 13.333374,6 c -1.945,0 -3.8102,0.77262 -5.18549,2.14788 -1.37527,1.37527 -2.14788,3.24052 -2.14788,5.18542 -0.00204,0.913 0.16992,1.8181 0.50666,2.6667 h -1.17333 c -0.35362,0 -0.69276,0.1405 -0.94281,0.3905 -0.25005,0.2501 -0.39052,0.5892 -0.39052,0.9428 0,0.3537 0.14047,0.6928 0.39052,0.9428 0.25005,0.2501 0.58919,0.3906 0.94281,0.3906 h 16.00004 c 0.3536,0 0.6927,-0.1405 0.9428,-0.3906 0.25,-0.25 0.3905,-0.5891 0.3905,-0.9428 0,-0.3536 -0.1405,-0.6927 -0.3905,-0.9428 -0.2501,-0.25 -0.5892,-0.3905 -0.9428,-0.3905 z m -4.2,0 h -7.6 c -0.56021,-0.7766 -0.86326,-1.7091 -0.86671,-2.6667 0,-1.2376 0.49167,-2.4246 1.36681,-3.2998 0.8752,-0.87517 2.0622,-1.36683 3.2999,-1.36683 1.2376,0 2.4246,0.49166 3.2998,1.36683 0.8752,0.8752 1.3668,2.0622 1.3668,3.2998 -0.0034,0.9576 -0.3065,1.8901 -0.8666,2.6667 z m 1.5333,5.3333 h -1.3333 c -0.3537,0 -0.6928,0.1405 -0.9428,0.3906 -0.2501,0.25 -0.3906,0.5891 -0.3906,0.9428 0,0.3536 0.1405,0.6927 0.3906,0.9428 0.25,0.25 0.5891,0.3905 0.9428,0.3905 h 1.3333 c 0.3536,0 0.6928,-0.1405 0.9428,-0.3905 0.2501,-0.2501 0.3905,-0.5892 0.3905,-0.9428 0,-0.3537 -0.1404,-0.6928 -0.3905,-0.9428 -0.25,-0.2501 -0.5892,-0.3906 -0.9428,-0.3906 z">
+                </svg>
+            </div>
+        </div>
+    </header>
+    <div class="max-w-7xl mx-auto">
+        <div class="sticky top-20 bg-stone-100 dark:bg-header_darkbg dark:text-white">
+            <nav x-data="{tabNO:0 , activeClass : 'text-primaycolor dark:text-primaycolor_dark'}" id="nav-mobile"
+                class="md:hidden mx-auto w-4/5 hidden">
+                <ul class="flex flex-col gap-y-4">
+                    <li class="px-4 text-lg font-bold mt-2">
+                        <a @click="tabNO = 1" :class="tabNO == 1 ? activeClass : ''" href="#About-p">
+                            About
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 2" :class="tabNO == 2 ? activeClass : ''" href="#Exp">
+                            Experience
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 3" :class="tabNO == 3 ? activeClass : ''" href="#Services">
+                            Services
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a @click="tabNO = 4" :class="tabNO == 4 ? activeClass : ''" href="#Portfolio">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold mb-6">
+                        <a @click="tabNO = 5" :class="tabNO == 5 ? activeClass : ''" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <section class="flex-col justify-center items-center mt-10 text-center font-semibold dark:text-white">
+            <span class="text-lg">
+                Hello, I'm
+            </span>
+            <h2 class="my-3 text-4xl font-bold">
+                Sina Ahmadi
+            </h2>
+            <h3 class="text-lg text-primaycolor dark:text-primaycolor_dark">
+                Developer
+            </h3>
+        </section>
+        <div class="flex flex-col w-4/5 justify-center items-center mx-auto mt-6 sm:flex-row mb-6">
+            <div class="w-full flex justify-center sm:w-fit">
+                <a class="btnSecondry mb-4 sm:mr-5 sm:mb-0" href="">
+                    Download CV
+                </a>
+            </div>
+            <div class="w-full flex justify-center sm:w-fit">
+                <a class="btnPrimary" href="">
+                    About Me
+                </a>
+            </div>
+        </div>
+        <div class="flex justify-center items-center">
+            <div
+                class="bg-gradient-to-b w-72 rounded-tr-[65px] rounded-tl-[65px] rounded-b-2xl h-72 from-primaycolor dark:from-primaycolor_dark dark:to-gray-500 to-gray-500 mb-6">
+                <img class="w-full" src="./images/avatar1.PNG" alt="">
+            </div>
+        </div>
+        <div class="hidden lg:flex mt-10 flex-col items-center">
+            <h2 id="About" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                About Me
+            </h2>
+            <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                My Intro
+            </span>
+        </div>
+        <section class="flex flex-col justify-center items-center mt-10 lg:flex-row lg:w-4/5 lg:mx-auto">
+            <div class="flex flex-col order-1 w-4/5 mx-auto lg:hidden">
+                <h2 id="About-p" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    About Me
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    My Intro
+                </span>
+                <p class="text-center dark:text-gray-400 text-xl">
+                    Web Developer , with extensive knowledge and years of experience in programming, working in web
+                    technologis and Back-End developing , delivering quality work.
+                </p>
+            </div>
+            <div
+                class="lg:hidden bg-gradient-to-b rounded-3xl w-72 h-72 from-primaycolor dark:from-primaycolor_dark dark:to-gray-500 to-gray-500 mb-20">
+                <img class="w-full" src="./images/avatar2.png" alt="">
+            </div>
+            <div class="lg:flex order-1">
+                <div
+                    class="lg:mt-0  lg:ml-6 lg:justify-start order-2 flex flex-col justify-center items-center sm:flex-row gap-6 mt-10 sm:flex-wrap sm:w-4/5 sm:mx-auto">
+                    <p class=" dark:text-gray-400 text-xl hidden lg:block text-left">
+                        Web Developer , with extensive knowledge and years of experience in programming, working in web
+                        technologis and Back-End developing , delivering quality work.
+                    </p>
+                    <div class="flex flex-col flex-wrap justify-center lg:flex-nowrap gap-6 sm:flex-row">
+                        <div id="pjs"
+                            class="hover:bg-primaycolor hover:dark:bg-primaycolor_dark cursor-pointer hover:-translate-y-3 duration-300 bg-secondrycolor dark:bg-secondrycolor_dark lg:px-6 lg:py-4 rounded-3xl flex flex-col items-center justify-center py-6 px-10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 dark:fill-primaycolor_dark fill-primaycolor" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <h3 class="font-semibold text-2xl dark:text-white">
+                                Completed
+                            </h3>
+                            <p class="dark:text-white">
+                                48 + Projects
+                            </p>
+                        </div>
+                        <div id="pjs"
+                            class="hover:bg-primaycolor hover:dark:bg-primaycolor_dark cursor-pointer hover:-translate-y-3 duration-300 bg-secondrycolor dark:bg-secondrycolor_dark lg:px-6 lg:py-4 rounded-3xl flex flex-col items-center justify-center py-6 px-10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 dark:fill-primaycolor_dark fill-primaycolor" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <h3 class="font-semibold text-2xl dark:text-white">
+                                Completed
+                            </h3>
+                            <p class="dark:text-white">
+                                48 + Projects
+                            </p>
+                        </div>
+                        <div id="pjs"
+                            class="hover:bg-primaycolor hover:dark:bg-primaycolor_dark cursor-pointer hover:-translate-y-3 duration-300 bg-secondrycolor dark:bg-secondrycolor_dark lg:px-6 lg:py-4 rounded-3xl flex flex-col items-center justify-center py-6 px-10">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-10 w-10 dark:fill-primaycolor_dark fill-primaycolor" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <h3 class="font-semibold text-2xl dark:text-white">
+                                Completed
+                            </h3>
+                            <p class="dark:text-white">
+                                48 + Projects
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btnPrimary" href="">
+                        Contact Me
+                    </a>
+                </div>
+                <div
+                    class="w-1/3 lg:inline-block hidden mr-8 bg-gradient-to-b rounded-3xl h-72 from-primaycolor dark:from-primaycolor_dark dark:to-gray-500 to-gray-500">
+                    <img class="w-full" src="./images/avatar2.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex flex-col mt-20 mb-8">
+                <h2 id="Exp" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    My Experience
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    My Abilities
+                </span>
+            </div>
+            <div class="flex flex-col md:w-4/6 mx-auto gap-12 lg:flex-row w-11/12">
+                <div
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <h2 class="dark:text-white text-3xl font-semibold">
+                        Frontend Developer
+                    </h2>
+                    <p class="dark:text-gray-400 text-lg mb-5">
+                        More than 6 months
+                    </p>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            HTML
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            75%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-9/12 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            CSS
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            80%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-4/5 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            JavaScript
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            30%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-1/3 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <h2 class="dark:text-white text-3xl font-semibold">
+                        Backend Developer
+                    </h2>
+                    <p class="dark:text-gray-400 text-lg mb-5">
+                        More than 1 years
+                    </p>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            Python
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            60%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-3/5 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            C#
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            80%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-4/5 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <h3 class="dark:text-white text-2xl font-semibold mb-2">
+                            C++
+                        </h3>
+                        <span class="dark:text-gray-400 font-semibold text-lg">
+                            50%
+                        </span>
+                    </div>
+                    <div class="w-full bg-[#8c6551] h-2 mb-4 rounded-full">
+                        <div class="w-1/2 bg-primaycolor dark:bg-primaycolor_dark h-full rounded-full">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex flex-col mt-20 mb-8">
+                <h2 id="Services" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    What I Offer
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    My Services
+                </span>
+            </div>
+            <div class="flex flex-col md:w-4/6 mx-auto gap-12 lg:flex-row w-11/12">
+                <div
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 pb-10 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-12 w-12 mr-3 dark:stroke-primaycolor_dark stroke-primaycolor" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h2 class="dark:text-white text-3xl font-semibold">
+                            Create of a website design
+                        </h2>
+                    </div>
+                    <p class="dark:text-gray-400 text-lg my-5">
+                        You want to launch your website, you need a new design for your future site? Contact me and we
+                        will discuss your needs and desires.
+                    </p>
+                    <div class="flex w-full justify-end">
+                        <a class="btnSecondry" href="#contact">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 pb-10 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-12 w-12 mr-3 dark:stroke-primaycolor_dark stroke-primaycolor" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h2 class="dark:text-white text-3xl font-semibold">
+                            Create desktop app
+                        </h2>
+                    </div>
+                    <p class="dark:text-gray-400 text-lg my-5">
+                        You want to launch your desktop app, you need a great .net core appliction using C#? Contact me
+                        and we
+                        will discuss your needs and desires.
+                    </p>
+                    <div class="flex w-full justify-end">
+                        <a class="btnSecondry" href="#contact">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section x-data="{ tabNO: 1 , activeClass : 'bg-primaycolor dark:bg-primaycolor_dark text-black btnPrimary' }">
+            <div class="flex flex-col mt-20 mb-8">
+                <h2 id="Portfolio" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    Recent Works
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    My Portfolio
+                </span>
+                <div class="flex w-full justify-center flex-wrap items-center">
+                    <button @click="tabNO = 1" :class="tabNO == 1 ? activeClass : ''" class="mr-4 btnSecondry" href="">
+                        All
+                    </button>
+                    <button @click="tabNO = 2" :class="tabNO == 2 ? activeClass : ''" class="mr-4 btnSecondry" href="">
+                        Web - clone
+                    </button>
+                    <button @click="tabNO = 3" :class="tabNO == 3 ? activeClass : ''" class="btnSecondry" href="">
+                        Web - exclusive
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col md:w-4/5 mt-14 mx-auto gap-20 lg:flex-row w-11/12 justify-center">
+                <div x-show="tabNO == 1 || tabNO == 2"
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 pb-10 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <h2 class="dark:text-white text-2xl font-semibold">
+                        Web - Daniel Wellington Clone
+                    </h2>
+                    <img class="rounded-3xl my-6 inline-block" src="./images/daniel.png" alt="">
+                    <div class="flex w-full justify-end">
+                        <a class="btnSecondry" href="#contact">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div x-show="tabNO == 1 || tabNO == 3"
+                    class="flex-1 bg-secondrycolor dark:bg-secondrycolor_dark p-14 pb-10 rounded-3xl hover:scale-95 duration-500 cursor-pointer">
+                    <h2 class="dark:text-white text-2xl font-semibold">
+                        Web - Digitize
+                    </h2>
+                    <img class="rounded-3xl my-6 inline-block" src="./images/digitize.png" alt="">
+                    <div class="flex w-full justify-end">
+                        <a class="btnSecondry" href="https://digitize.devsina.ir">
+                            View Online
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex flex-col mt-20 mb-8">
+                <h2 class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    Anonymus Message
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    Send Me Message Anonymusly
+                </span>
+            </div>
+            <div class="flex w-5/6 lg:w-1/2 mx-auto">
+                <div class=" bg-secondrycolor dark:bg-secondrycolor_dark rounded-3xl flex flex-col w-full py-8 px-14">
+                    <div>
+                        <h2 class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                            Title
+                        </h2>
+                        <div class="md:w-1/2 w-4/5 mx-auto mt-5">
+                            <input
+                                class="text-2xl text-center w-full rounded-xl py-1 px-3 bg-primaycolor text-white dark:text-black dark:bg-primaycolor_dark font-semibold"
+                                type="text" name="title" id="title">
+                        </div>
+                        <p class="text-center w-full dark:text-gray-400 text-2xl mt-6 font-semibold mb-5">
+                            Compose
+                        </p>
+                        <div class="mx-auto mt-5 md:w-4/5 md:mx-auto">
+                            <textarea id="compose"
+                                class="w-full rounded-xl break-words h-60 py-1 px-3 bg-primaycolor text-white dark:text-black dark:bg-primaycolor_dark font-semibold"
+                                type="text" name="title" id="title"></textarea>
+                        </div>
+                        <div class="flex justify-center mt-6">
+                            <button id="submit" class="btnPrimary py-1 px-8 text-2xl cursor-pointer" onclick="send()"
+                                type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex flex-col mt-32 mb-8">
+                <h2 id="contact" class="text-4xl font-bold text-primaycolor dark:text-primaycolor_dark text-center">
+                    Contact Me
+                </h2>
+                <span class="text-center w-full dark:text-gray-400 text-2xl font-semibold mb-5">
+                    Get In Touch
+                </span>
+            </div>
+            <div class="flex sm:flex-row flex-col flex-wrap w-4/5 gap-8 items-center justify-center mx-auto">
+                <a href="https://twitter.com/0x_sina" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-primaycolor hover:dark:bg-primaycolor_dark duration-300 bg-secondrycolor dark:bg-secondrycolor_dark h-32 w-40 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="32" viewBox="0 0 38 32"
+                        class=" stroke-primaycolor dark:stroke-primaycolor_dark">
+                        <path
+                            d="M37.3187 2.5836C37.3189 2.28921 37.241 2.00003 37.0931 1.7455C36.9452 1.49098 36.7325 1.28021 36.4766 1.13465C36.2207 0.989088 35.9308 0.913945 35.6364 0.916869C35.3421 0.919794 35.0537 1.00068 34.8008 1.1513C33.8253 1.73194 32.775 2.1766 31.6791 2.47296C30.1141 1.13002 28.118 0.395134 26.0558 0.402645C23.7934 0.405249 21.6206 1.28697 19.9961 2.86161C18.3717 4.43626 17.4228 6.58058 17.3497 8.84178C12.8897 8.13055 8.84745 5.80265 5.99381 2.30201C5.82187 2.0934 5.60229 1.9292 5.35358 1.82326C5.10487 1.71731 4.83433 1.67272 4.56478 1.69326C4.29538 1.71544 4.03543 1.80292 3.80743 1.94811C3.57942 2.09331 3.39022 2.29186 3.25618 2.52659C2.56872 3.72628 2.17389 5.07119 2.10376 6.45211C2.03362 7.83302 2.29016 9.21101 2.85253 10.4742L2.84928 10.4774C2.59652 10.6331 2.38793 10.851 2.24345 11.1103C2.09897 11.3697 2.02344 11.6617 2.02408 11.9586C2.02102 12.2034 2.0357 12.4482 2.06803 12.691C2.23825 14.7881 3.16766 16.7511 4.68196 18.2118C4.57923 18.4075 4.51653 18.6217 4.49753 18.8419C4.47853 19.0622 4.5036 19.2839 4.57128 19.4944C5.23147 21.5513 6.63544 23.2878 8.50846 24.3641C6.60553 25.1 4.55083 25.3566 2.52538 25.1112C2.1505 25.0642 1.77076 25.146 1.44846 25.3431C1.12615 25.5403 0.88042 25.8411 0.751568 26.1963C0.622715 26.5514 0.618393 26.9398 0.739311 27.2978C0.860228 27.6557 1.09921 27.962 1.41704 28.1662C4.90053 30.4098 8.9565 31.6027 13.1 31.6021C17.7988 31.655 22.3833 30.1535 26.1404 27.3312C29.8975 24.5089 32.6166 20.5241 33.8747 15.9966C34.4631 14.0243 34.7635 11.9774 34.7667 9.91919C34.7667 9.81014 34.7667 9.69784 34.765 9.58554C35.6352 8.6471 36.3093 7.54438 36.7478 6.34204C37.1863 5.1397 37.3804 3.86192 37.3187 2.5836V2.5836ZM31.8076 7.93678C31.5323 8.26235 31.393 8.68144 31.4186 9.10703C31.4349 9.38203 31.4333 9.65869 31.4333 9.91919C31.4298 11.6584 31.1749 13.388 30.6764 15.0543C29.6489 18.9066 27.3584 22.3027 24.1716 24.6986C20.9848 27.0945 17.0861 28.3517 13.1 28.2688C11.6681 28.2693 10.2412 28.101 8.84869 27.7675C10.6244 27.1953 12.2847 26.313 13.7527 25.1617C14.023 24.9488 14.2209 24.6575 14.3191 24.3277C14.4174 23.9979 14.4111 23.6458 14.3013 23.3196C14.1914 22.9935 13.9834 22.7094 13.7056 22.5062C13.4279 22.303 13.0941 22.1908 12.75 22.1848C11.3647 22.1633 10.0419 21.6049 9.06021 20.6272C9.30924 20.58 9.55664 20.5214 9.80241 20.4514C10.1624 20.349 10.4775 20.1283 10.6968 19.825C10.9162 19.5217 11.0271 19.1534 11.0117 18.7794C10.9963 18.4054 10.8555 18.0474 10.6119 17.7632C10.3683 17.479 10.0362 17.285 9.66894 17.2125C8.86484 17.0537 8.10819 16.7116 7.4578 16.2128C6.80742 15.714 6.28082 15.0719 5.91894 14.3365C6.22016 14.3776 6.52329 14.4032 6.82714 14.413C7.18811 14.4185 7.54147 14.309 7.8361 14.1004C8.13074 13.8917 8.35139 13.5948 8.46614 13.2525C8.57611 12.9071 8.57045 12.5353 8.45002 12.1934C8.3296 11.8515 8.10098 11.5582 7.79883 11.358C7.06574 10.8696 6.46523 10.207 6.05109 9.42959C5.63694 8.65215 5.42209 7.78412 5.42578 6.90326C5.42578 6.79259 5.42903 6.68191 5.43554 6.57286C9.17098 10.0566 14.0161 12.1103 19.1172 12.372C19.3747 12.3822 19.6311 12.3337 19.8671 12.2302C20.1031 12.1267 20.3125 11.9709 20.4795 11.7747C20.6448 11.5765 20.7619 11.3427 20.8214 11.0916C20.881 10.8405 20.8815 10.579 20.8229 10.3277C20.7275 9.93002 20.6789 9.52253 20.678 9.11354C20.6795 7.68777 21.2466 6.32083 22.2548 5.31265C23.2629 4.30448 24.6299 3.73743 26.0557 3.73593C26.7892 3.73396 27.5152 3.88409 28.1878 4.17684C28.8604 4.46959 29.4651 4.89859 29.9635 5.43678C30.1558 5.64358 30.3977 5.79777 30.6663 5.88467C30.935 5.97157 31.2214 5.9883 31.4983 5.93326C32.183 5.80002 32.8578 5.62058 33.5182 5.39616C33.0677 6.31778 32.4921 7.17274 31.8076 7.93678V7.93678Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <a href="https://instagram.com/x0.sina" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-primaycolor hover:dark:bg-primaycolor_dark duration-300 bg-secondrycolor dark:bg-secondrycolor_dark h-32 w-40 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
+                        class=" stroke-primaycolor dark:stroke-primaycolor_dark fill-primaycolor dark:fill-primaycolor_dark">
+                        <path
+                            d="M25.9 6.09992C25.5044 6.09992 25.1177 6.21722 24.7888 6.43698C24.4599 6.65674 24.2036 6.9691 24.0522 7.33455C23.9008 7.7 23.8612 8.10214 23.9384 8.4901C24.0156 8.87806 24.2061 9.23443 24.4858 9.51413C24.7655 9.79384 25.1218 9.98432 25.5098 10.0615C25.8978 10.1387 26.2999 10.0991 26.6653 9.94768C27.0308 9.7963 27.3432 9.53996 27.5629 9.21106C27.7827 8.88216 27.9 8.49548 27.9 8.09992C27.9 7.56949 27.6893 7.06078 27.3142 6.68571C26.9391 6.31063 26.4304 6.09992 25.9 6.09992V6.09992ZM33.5666 10.1333C33.5342 8.75042 33.2752 7.38226 32.8 6.08325C32.3762 4.97181 31.7166 3.96538 30.8666 3.13325C30.0414 2.27896 29.0326 1.62355 27.9166 1.21659C26.6211 0.726853 25.2514 0.461935 23.8666 0.433252C22.1 0.333252 21.5333 0.333252 17 0.333252C12.4666 0.333252 11.9 0.333252 10.1333 0.433252C8.74857 0.461935 7.37889 0.726853 6.08331 1.21659C4.96944 1.62767 3.96154 2.28252 3.13331 3.13325C2.27902 3.95855 1.62361 4.96732 1.21665 6.08325C0.726914 7.37882 0.461996 8.74851 0.433313 10.1333C0.333313 11.8999 0.333313 12.4666 0.333313 16.9999C0.333313 21.5333 0.333313 22.0999 0.433313 23.8666C0.461996 25.2513 0.726914 26.621 1.21665 27.9166C1.62361 29.0325 2.27902 30.0413 3.13331 30.8666C3.96154 31.7173 4.96944 32.3722 6.08331 32.7833C7.37889 33.273 8.74857 33.5379 10.1333 33.5666C11.9 33.6666 12.4666 33.6666 17 33.6666C21.5333 33.6666 22.1 33.6666 23.8666 33.5666C25.2514 33.5379 26.6211 33.273 27.9166 32.7833C29.0326 32.3763 30.0414 31.7209 30.8666 30.8666C31.7204 30.0376 32.3805 29.0302 32.8 27.9166C33.2752 26.6176 33.5342 25.2494 33.5666 23.8666C33.5666 22.0999 33.6666 21.5333 33.6666 16.9999C33.6666 12.4666 33.6666 11.8999 33.5666 10.1333V10.1333ZM30.5666 23.6666C30.5545 24.7245 30.3629 25.7728 30 26.7666C29.7339 27.4919 29.3064 28.1473 28.75 28.6833C28.2094 29.2341 27.5554 29.6606 26.8333 29.9333C25.8395 30.2962 24.7913 30.4878 23.7333 30.4999C22.0666 30.5833 21.45 30.5999 17.0666 30.5999C12.6833 30.5999 12.0666 30.5999 10.4 30.4999C9.30146 30.5205 8.20764 30.3513 7.16665 29.9999C6.47628 29.7134 5.85224 29.2879 5.33331 28.7499C4.78013 28.2145 4.35805 27.5586 4.09998 26.8333C3.69307 25.8252 3.46739 24.7532 3.43331 23.6666C3.43331 21.9999 3.33331 21.3833 3.33331 16.9999C3.33331 12.6166 3.33331 11.9999 3.43331 10.3333C3.44078 9.25168 3.63823 8.17983 4.01665 7.16659C4.31006 6.4631 4.76042 5.83602 5.33331 5.33325C5.83967 4.7602 6.46546 4.30508 7.16665 3.99992C8.18256 3.63332 9.25331 3.44172 10.3333 3.43325C12 3.43325 12.6166 3.33325 17 3.33325C21.3833 3.33325 22 3.33325 23.6666 3.43325C24.7246 3.44539 25.7728 3.637 26.7666 3.99992C27.524 4.28101 28.2038 4.738 28.75 5.33325C29.2961 5.84522 29.7229 6.47114 30 7.16659C30.3704 8.18147 30.5621 9.25289 30.5666 10.3333C30.65 11.9999 30.6666 12.6166 30.6666 16.9999C30.6666 21.3833 30.65 21.9999 30.5666 23.6666ZM17 8.44992C15.3097 8.45321 13.6583 8.95746 12.2544 9.89895C10.8506 10.8404 9.75728 12.1769 9.1127 13.7395C8.46813 15.3021 8.30119 17.0207 8.63297 18.6781C8.96475 20.3356 9.78037 21.8575 10.9768 23.0516C12.1732 24.2456 13.6967 25.0583 15.3547 25.3868C17.0128 25.7154 18.7311 25.5451 20.2924 24.8975C21.8538 24.2499 23.1881 23.154 24.1269 21.7483C25.0656 20.3426 25.5666 18.6902 25.5666 16.9999C25.5689 15.8751 25.3487 14.7609 24.9187 13.7215C24.4888 12.6821 23.8576 11.7379 23.0614 10.9433C22.2653 10.1487 21.3199 9.51938 20.2796 9.09147C19.2394 8.66355 18.1248 8.44552 17 8.44992V8.44992ZM17 22.5499C15.9023 22.5499 14.8293 22.2244 13.9166 21.6146C13.0039 21.0047 12.2925 20.1379 11.8724 19.1238C11.4524 18.1097 11.3425 16.9938 11.5566 15.9172C11.7708 14.8406 12.2994 13.8517 13.0755 13.0755C13.8517 12.2993 14.8406 11.7707 15.9172 11.5566C16.9938 11.3424 18.1097 11.4523 19.1239 11.8724C20.138 12.2925 21.0048 13.0038 21.6146 13.9165C22.2245 14.8292 22.55 15.9022 22.55 16.9999C22.55 17.7288 22.4064 18.4505 22.1275 19.1238C21.8486 19.7972 21.4398 20.409 20.9244 20.9244C20.4091 21.4397 19.7972 21.8485 19.1239 22.1275C18.4505 22.4064 17.7288 22.5499 17 22.5499V22.5499Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <a href="mailto:info@devsina.ir" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-primaycolor hover:dark:bg-primaycolor_dark duration-300 bg-secondrycolor dark:bg-secondrycolor_dark h-32 w-40 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="28" viewBox="0 0 34 28"
+                        class=" stroke-primaycolor dark:stroke-primaycolor_dark fill-primaycolor dark:fill-primaycolor_dark">
+                        <path
+                            d="M32 7.33341C31.558 7.33341 31.134 7.50901 30.8215 7.82157C30.5089 8.13413 30.3333 8.55805 30.3333 9.00008V22.3334C30.3333 22.7754 30.1577 23.1994 29.8452 23.5119C29.5326 23.8245 29.1087 24.0001 28.6666 24.0001H5.33331C4.89129 24.0001 4.46736 23.8245 4.1548 23.5119C3.84224 23.1994 3.66665 22.7754 3.66665 22.3334V6.35008L13.4666 16.1501C14.4041 17.0864 15.675 17.6123 17 17.6123C18.325 17.6123 19.5958 17.0864 20.5333 16.1501L26.5166 10.1834C26.8305 9.86958 27.0068 9.44392 27.0068 9.00008C27.0068 8.55625 26.8305 8.13059 26.5166 7.81675C26.2028 7.50291 25.7772 7.32659 25.3333 7.32659C24.8895 7.32659 24.4638 7.50291 24.15 7.81675L18.1833 13.8001C18.0284 13.9563 17.844 14.0803 17.6409 14.1649C17.4378 14.2495 17.22 14.2931 17 14.2931C16.78 14.2931 16.5621 14.2495 16.359 14.1649C16.1559 14.0803 15.9716 13.9563 15.8166 13.8001L6.01665 4.00008H18.6666C19.1087 4.00008 19.5326 3.82449 19.8452 3.51193C20.1577 3.19937 20.3333 2.77544 20.3333 2.33341C20.3333 1.89139 20.1577 1.46746 19.8452 1.1549C19.5326 0.842343 19.1087 0.666748 18.6666 0.666748H5.33331C4.00723 0.666748 2.73546 1.19353 1.79778 2.13121C0.860097 3.0689 0.333313 4.34067 0.333313 5.66675V22.3334C0.333313 23.6595 0.860097 24.9313 1.79778 25.8689C2.73546 26.8066 4.00723 27.3334 5.33331 27.3334H28.6666C29.9927 27.3334 31.2645 26.8066 32.2022 25.8689C33.1399 24.9313 33.6666 23.6595 33.6666 22.3334V9.00008C33.6666 8.55805 33.4911 8.13413 33.1785 7.82157C32.8659 7.50901 32.442 7.33341 32 7.33341ZM25.3333 4.00008H32C32.442 4.00008 32.8659 3.82449 33.1785 3.51193C33.4911 3.19937 33.6666 2.77544 33.6666 2.33341C33.6666 1.89139 33.4911 1.46746 33.1785 1.1549C32.8659 0.842343 32.442 0.666748 32 0.666748H25.3333C24.8913 0.666748 24.4674 0.842343 24.1548 1.1549C23.8422 1.46746 23.6666 1.89139 23.6666 2.33341C23.6666 2.77544 23.8422 3.19937 24.1548 3.51193C24.4674 3.82449 24.8913 4.00008 25.3333 4.00008Z"
+                            fill="white" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+    <footer class="mt-24 bg-primaycolor dark:bg-primaycolor_dark pt-8 pb-4">
+        <div>
+            <div class="flex justify-center items-center">
+                <h2 class="text-4xl font-extrabold dark:text-secondrycolor_dark">
+                    Sina Ahmadi
+                </h2>
+            </div>
+            <div class="my-6">
+                <ul class="flex flex-col sm:flex-row items-center justify-center gap-y-4">
+                    <li class="px-4 text-lg font-bold">
+                        <a class="md:hidden" href="#About-p">
+                            About
+                        </a>
+                        <a class="hidden md:inline" href="#About">
+                            About
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a href="#Exp">
+                            Experience
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a href="#Services">
+                            Services
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a href="#Portfolio">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li class="px-4 text-lg font-bold">
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-col flex justify-center items-center gap-6 sm:flex-row my-8">
+                <a href="https://twitter.com/0x_sina" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-gray-700 duration-300 bg-secondrycolor_dark h-14 w-14 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32"
+                        class="w-6 h-6 stroke-primaycolor dark:stroke-primaycolor_dark">
+                        <path
+                            d="M37.3187 2.5836C37.3189 2.28921 37.241 2.00003 37.0931 1.7455C36.9452 1.49098 36.7325 1.28021 36.4766 1.13465C36.2207 0.989088 35.9308 0.913945 35.6364 0.916869C35.3421 0.919794 35.0537 1.00068 34.8008 1.1513C33.8253 1.73194 32.775 2.1766 31.6791 2.47296C30.1141 1.13002 28.118 0.395134 26.0558 0.402645C23.7934 0.405249 21.6206 1.28697 19.9961 2.86161C18.3717 4.43626 17.4228 6.58058 17.3497 8.84178C12.8897 8.13055 8.84745 5.80265 5.99381 2.30201C5.82187 2.0934 5.60229 1.9292 5.35358 1.82326C5.10487 1.71731 4.83433 1.67272 4.56478 1.69326C4.29538 1.71544 4.03543 1.80292 3.80743 1.94811C3.57942 2.09331 3.39022 2.29186 3.25618 2.52659C2.56872 3.72628 2.17389 5.07119 2.10376 6.45211C2.03362 7.83302 2.29016 9.21101 2.85253 10.4742L2.84928 10.4774C2.59652 10.6331 2.38793 10.851 2.24345 11.1103C2.09897 11.3697 2.02344 11.6617 2.02408 11.9586C2.02102 12.2034 2.0357 12.4482 2.06803 12.691C2.23825 14.7881 3.16766 16.7511 4.68196 18.2118C4.57923 18.4075 4.51653 18.6217 4.49753 18.8419C4.47853 19.0622 4.5036 19.2839 4.57128 19.4944C5.23147 21.5513 6.63544 23.2878 8.50846 24.3641C6.60553 25.1 4.55083 25.3566 2.52538 25.1112C2.1505 25.0642 1.77076 25.146 1.44846 25.3431C1.12615 25.5403 0.88042 25.8411 0.751568 26.1963C0.622715 26.5514 0.618393 26.9398 0.739311 27.2978C0.860228 27.6557 1.09921 27.962 1.41704 28.1662C4.90053 30.4098 8.9565 31.6027 13.1 31.6021C17.7988 31.655 22.3833 30.1535 26.1404 27.3312C29.8975 24.5089 32.6166 20.5241 33.8747 15.9966C34.4631 14.0243 34.7635 11.9774 34.7667 9.91919C34.7667 9.81014 34.7667 9.69784 34.765 9.58554C35.6352 8.6471 36.3093 7.54438 36.7478 6.34204C37.1863 5.1397 37.3804 3.86192 37.3187 2.5836V2.5836ZM31.8076 7.93678C31.5323 8.26235 31.393 8.68144 31.4186 9.10703C31.4349 9.38203 31.4333 9.65869 31.4333 9.91919C31.4298 11.6584 31.1749 13.388 30.6764 15.0543C29.6489 18.9066 27.3584 22.3027 24.1716 24.6986C20.9848 27.0945 17.0861 28.3517 13.1 28.2688C11.6681 28.2693 10.2412 28.101 8.84869 27.7675C10.6244 27.1953 12.2847 26.313 13.7527 25.1617C14.023 24.9488 14.2209 24.6575 14.3191 24.3277C14.4174 23.9979 14.4111 23.6458 14.3013 23.3196C14.1914 22.9935 13.9834 22.7094 13.7056 22.5062C13.4279 22.303 13.0941 22.1908 12.75 22.1848C11.3647 22.1633 10.0419 21.6049 9.06021 20.6272C9.30924 20.58 9.55664 20.5214 9.80241 20.4514C10.1624 20.349 10.4775 20.1283 10.6968 19.825C10.9162 19.5217 11.0271 19.1534 11.0117 18.7794C10.9963 18.4054 10.8555 18.0474 10.6119 17.7632C10.3683 17.479 10.0362 17.285 9.66894 17.2125C8.86484 17.0537 8.10819 16.7116 7.4578 16.2128C6.80742 15.714 6.28082 15.0719 5.91894 14.3365C6.22016 14.3776 6.52329 14.4032 6.82714 14.413C7.18811 14.4185 7.54147 14.309 7.8361 14.1004C8.13074 13.8917 8.35139 13.5948 8.46614 13.2525C8.57611 12.9071 8.57045 12.5353 8.45002 12.1934C8.3296 11.8515 8.10098 11.5582 7.79883 11.358C7.06574 10.8696 6.46523 10.207 6.05109 9.42959C5.63694 8.65215 5.42209 7.78412 5.42578 6.90326C5.42578 6.79259 5.42903 6.68191 5.43554 6.57286C9.17098 10.0566 14.0161 12.1103 19.1172 12.372C19.3747 12.3822 19.6311 12.3337 19.8671 12.2302C20.1031 12.1267 20.3125 11.9709 20.4795 11.7747C20.6448 11.5765 20.7619 11.3427 20.8214 11.0916C20.881 10.8405 20.8815 10.579 20.8229 10.3277C20.7275 9.93002 20.6789 9.52253 20.678 9.11354C20.6795 7.68777 21.2466 6.32083 22.2548 5.31265C23.2629 4.30448 24.6299 3.73743 26.0557 3.73593C26.7892 3.73396 27.5152 3.88409 28.1878 4.17684C28.8604 4.46959 29.4651 4.89859 29.9635 5.43678C30.1558 5.64358 30.3977 5.79777 30.6663 5.88467C30.935 5.97157 31.2214 5.9883 31.4983 5.93326C32.183 5.80002 32.8578 5.62058 33.5182 5.39616C33.0677 6.31778 32.4921 7.17274 31.8076 7.93678V7.93678Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <a href="https://instagram.com/x0.sina" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-gray-700 duration-300 bg-secondrycolor_dark h-14 w-14 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34"
+                        class="w-6 h-6 stroke-primaycolor dark:stroke-primaycolor_dark fill-primaycolor dark:fill-primaycolor_dark">
+                        <path
+                            d="M25.9 6.09992C25.5044 6.09992 25.1177 6.21722 24.7888 6.43698C24.4599 6.65674 24.2036 6.9691 24.0522 7.33455C23.9008 7.7 23.8612 8.10214 23.9384 8.4901C24.0156 8.87806 24.2061 9.23443 24.4858 9.51413C24.7655 9.79384 25.1218 9.98432 25.5098 10.0615C25.8978 10.1387 26.2999 10.0991 26.6653 9.94768C27.0308 9.7963 27.3432 9.53996 27.5629 9.21106C27.7827 8.88216 27.9 8.49548 27.9 8.09992C27.9 7.56949 27.6893 7.06078 27.3142 6.68571C26.9391 6.31063 26.4304 6.09992 25.9 6.09992V6.09992ZM33.5666 10.1333C33.5342 8.75042 33.2752 7.38226 32.8 6.08325C32.3762 4.97181 31.7166 3.96538 30.8666 3.13325C30.0414 2.27896 29.0326 1.62355 27.9166 1.21659C26.6211 0.726853 25.2514 0.461935 23.8666 0.433252C22.1 0.333252 21.5333 0.333252 17 0.333252C12.4666 0.333252 11.9 0.333252 10.1333 0.433252C8.74857 0.461935 7.37889 0.726853 6.08331 1.21659C4.96944 1.62767 3.96154 2.28252 3.13331 3.13325C2.27902 3.95855 1.62361 4.96732 1.21665 6.08325C0.726914 7.37882 0.461996 8.74851 0.433313 10.1333C0.333313 11.8999 0.333313 12.4666 0.333313 16.9999C0.333313 21.5333 0.333313 22.0999 0.433313 23.8666C0.461996 25.2513 0.726914 26.621 1.21665 27.9166C1.62361 29.0325 2.27902 30.0413 3.13331 30.8666C3.96154 31.7173 4.96944 32.3722 6.08331 32.7833C7.37889 33.273 8.74857 33.5379 10.1333 33.5666C11.9 33.6666 12.4666 33.6666 17 33.6666C21.5333 33.6666 22.1 33.6666 23.8666 33.5666C25.2514 33.5379 26.6211 33.273 27.9166 32.7833C29.0326 32.3763 30.0414 31.7209 30.8666 30.8666C31.7204 30.0376 32.3805 29.0302 32.8 27.9166C33.2752 26.6176 33.5342 25.2494 33.5666 23.8666C33.5666 22.0999 33.6666 21.5333 33.6666 16.9999C33.6666 12.4666 33.6666 11.8999 33.5666 10.1333V10.1333ZM30.5666 23.6666C30.5545 24.7245 30.3629 25.7728 30 26.7666C29.7339 27.4919 29.3064 28.1473 28.75 28.6833C28.2094 29.2341 27.5554 29.6606 26.8333 29.9333C25.8395 30.2962 24.7913 30.4878 23.7333 30.4999C22.0666 30.5833 21.45 30.5999 17.0666 30.5999C12.6833 30.5999 12.0666 30.5999 10.4 30.4999C9.30146 30.5205 8.20764 30.3513 7.16665 29.9999C6.47628 29.7134 5.85224 29.2879 5.33331 28.7499C4.78013 28.2145 4.35805 27.5586 4.09998 26.8333C3.69307 25.8252 3.46739 24.7532 3.43331 23.6666C3.43331 21.9999 3.33331 21.3833 3.33331 16.9999C3.33331 12.6166 3.33331 11.9999 3.43331 10.3333C3.44078 9.25168 3.63823 8.17983 4.01665 7.16659C4.31006 6.4631 4.76042 5.83602 5.33331 5.33325C5.83967 4.7602 6.46546 4.30508 7.16665 3.99992C8.18256 3.63332 9.25331 3.44172 10.3333 3.43325C12 3.43325 12.6166 3.33325 17 3.33325C21.3833 3.33325 22 3.33325 23.6666 3.43325C24.7246 3.44539 25.7728 3.637 26.7666 3.99992C27.524 4.28101 28.2038 4.738 28.75 5.33325C29.2961 5.84522 29.7229 6.47114 30 7.16659C30.3704 8.18147 30.5621 9.25289 30.5666 10.3333C30.65 11.9999 30.6666 12.6166 30.6666 16.9999C30.6666 21.3833 30.65 21.9999 30.5666 23.6666ZM17 8.44992C15.3097 8.45321 13.6583 8.95746 12.2544 9.89895C10.8506 10.8404 9.75728 12.1769 9.1127 13.7395C8.46813 15.3021 8.30119 17.0207 8.63297 18.6781C8.96475 20.3356 9.78037 21.8575 10.9768 23.0516C12.1732 24.2456 13.6967 25.0583 15.3547 25.3868C17.0128 25.7154 18.7311 25.5451 20.2924 24.8975C21.8538 24.2499 23.1881 23.154 24.1269 21.7483C25.0656 20.3426 25.5666 18.6902 25.5666 16.9999C25.5689 15.8751 25.3487 14.7609 24.9187 13.7215C24.4888 12.6821 23.8576 11.7379 23.0614 10.9433C22.2653 10.1487 21.3199 9.51938 20.2796 9.09147C19.2394 8.66355 18.1248 8.44552 17 8.44992V8.44992ZM17 22.5499C15.9023 22.5499 14.8293 22.2244 13.9166 21.6146C13.0039 21.0047 12.2925 20.1379 11.8724 19.1238C11.4524 18.1097 11.3425 16.9938 11.5566 15.9172C11.7708 14.8406 12.2994 13.8517 13.0755 13.0755C13.8517 12.2993 14.8406 11.7707 15.9172 11.5566C16.9938 11.3424 18.1097 11.4523 19.1239 11.8724C20.138 12.2925 21.0048 13.0038 21.6146 13.9165C22.2245 14.8292 22.55 15.9022 22.55 16.9999C22.55 17.7288 22.4064 18.4505 22.1275 19.1238C21.8486 19.7972 21.4398 20.409 20.9244 20.9244C20.4091 21.4397 19.7972 21.8485 19.1239 22.1275C18.4505 22.4064 17.7288 22.5499 17 22.5499V22.5499Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <a href="mailto:info@devsina.ir" target="_blank"
+                    class="hover:-translate-y-4 icon_hover hover:bg-gray-700 duration-300 bg-secondrycolor_dark h-14 w-14 flex items-center justify-center rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 28"
+                        class="w-6 h-6 stroke-primaycolor dark:stroke-primaycolor_dark fill-primaycolor dark:fill-primaycolor_dark">
+                        <path
+                            d="M32 7.33341C31.558 7.33341 31.134 7.50901 30.8215 7.82157C30.5089 8.13413 30.3333 8.55805 30.3333 9.00008V22.3334C30.3333 22.7754 30.1577 23.1994 29.8452 23.5119C29.5326 23.8245 29.1087 24.0001 28.6666 24.0001H5.33331C4.89129 24.0001 4.46736 23.8245 4.1548 23.5119C3.84224 23.1994 3.66665 22.7754 3.66665 22.3334V6.35008L13.4666 16.1501C14.4041 17.0864 15.675 17.6123 17 17.6123C18.325 17.6123 19.5958 17.0864 20.5333 16.1501L26.5166 10.1834C26.8305 9.86958 27.0068 9.44392 27.0068 9.00008C27.0068 8.55625 26.8305 8.13059 26.5166 7.81675C26.2028 7.50291 25.7772 7.32659 25.3333 7.32659C24.8895 7.32659 24.4638 7.50291 24.15 7.81675L18.1833 13.8001C18.0284 13.9563 17.844 14.0803 17.6409 14.1649C17.4378 14.2495 17.22 14.2931 17 14.2931C16.78 14.2931 16.5621 14.2495 16.359 14.1649C16.1559 14.0803 15.9716 13.9563 15.8166 13.8001L6.01665 4.00008H18.6666C19.1087 4.00008 19.5326 3.82449 19.8452 3.51193C20.1577 3.19937 20.3333 2.77544 20.3333 2.33341C20.3333 1.89139 20.1577 1.46746 19.8452 1.1549C19.5326 0.842343 19.1087 0.666748 18.6666 0.666748H5.33331C4.00723 0.666748 2.73546 1.19353 1.79778 2.13121C0.860097 3.0689 0.333313 4.34067 0.333313 5.66675V22.3334C0.333313 23.6595 0.860097 24.9313 1.79778 25.8689C2.73546 26.8066 4.00723 27.3334 5.33331 27.3334H28.6666C29.9927 27.3334 31.2645 26.8066 32.2022 25.8689C33.1399 24.9313 33.6666 23.6595 33.6666 22.3334V9.00008C33.6666 8.55805 33.4911 8.13413 33.1785 7.82157C32.8659 7.50901 32.442 7.33341 32 7.33341ZM25.3333 4.00008H32C32.442 4.00008 32.8659 3.82449 33.1785 3.51193C33.4911 3.19937 33.6666 2.77544 33.6666 2.33341C33.6666 1.89139 33.4911 1.46746 33.1785 1.1549C32.8659 0.842343 32.442 0.666748 32 0.666748H25.3333C24.8913 0.666748 24.4674 0.842343 24.1548 1.1549C23.8422 1.46746 23.6666 1.89139 23.6666 2.33341C23.6666 2.77544 23.8422 3.19937 24.1548 3.51193C24.4674 3.82449 24.8913 4.00008 25.3333 4.00008Z"
+                            fill="white" />
+                    </svg>
+                </a>
+            </div>
+            <div class="flex justify-center items-center mt-12">
+                <h4 class="font-semibold text-xl">
+                    &copy; Devsina.ir . All Right Reserved.
+                </h4>
+            </div>
+        </div>
+    </footer>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="./script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+.line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: #000;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+}
+
+.ham {
+    transition: transform 400ms;
+}
+
+.ham .top {
+    stroke-dasharray: 40 121;
+}
+
+.ham .bottom {
+    stroke-dasharray: 40 121;
+}
+
+.ham.active .top {
+    stroke-dashoffset: -68px;
+}
+
+.ham.active .bottom {
+    stroke-dashoffset: -68px;
+}
+
+.hamRotate.active {
+    transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+    transform: rotate(180deg);
+}
+
+nav.mobile.show {
+    display: block;
+}
